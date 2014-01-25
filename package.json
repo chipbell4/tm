@@ -15,7 +15,7 @@
 		"name" : "Chip Bell"
 	},
 	"bin" : {
-		"tm" : "lib/main.js"
+		"tm" : "bin/tm.js"
 	},
 	"dependencies" : {
 		"glob" : "3.2.8",
