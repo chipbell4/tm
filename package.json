@@ -19,6 +19,7 @@
 	},
 	"dependencies" : {
 		"glob" : "3.2.8",
+		"helmsman" : "0.2.6",
 		"optimist" : "0.6.0",
 		"underscore" : "1.5.2"
 	},
