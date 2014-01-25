@@ -29,7 +29,7 @@ describe("TemplatePathBuilder", function() {
 		 */
 		process.env.HOME = "/home/user";
 		
-		var template_name = 'path.to.template';
+		var template_name = 'path/to/template';
 
 		var actual = TemplatePathBuilder.build(template_name);
 
@@ -39,7 +39,7 @@ describe("TemplatePathBuilder", function() {
 	it("Should trim double slashes", function() {
 		process.env.HOME = '/home/user';
 
-		var template_name = 'path...to..template';
+		var template_name = 'path///to//template';
 
 		var actual = TemplatePathBuilder.build(template_name);
 
