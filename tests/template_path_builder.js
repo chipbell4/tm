@@ -33,7 +33,7 @@ describe("TemplatePathBuilder", function() {
 
 		var actual = TemplatePathBuilder.build(template_name);
 
-		expect(actual).to.equal('/home/user/.tm/path/to/template.*');
+		expect(actual).to.equal('/home/user/.tm/path/to/template*');
 	});
 
 	it("Should trim double slashes", function() {
@@ -43,7 +43,7 @@ describe("TemplatePathBuilder", function() {
 
 		var actual = TemplatePathBuilder.build(template_name);
 
-		expect(actual).to.equal('/home/user/.tm/path/to/template.*');
+		expect(actual).to.equal('/home/user/.tm/path/to/template*');
 		var template_n
 	});
 
@@ -58,7 +58,7 @@ describe("TemplatePathBuilder", function() {
 
 		var actual = TemplatePathBuilder.build(template_name);
 
-		expect(actual).to.equal('/home/user/.tm/');
+		expect(actual).to.equal('/home/user/.tm');
 
 	});
 });
