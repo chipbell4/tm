@@ -7,7 +7,6 @@ exports.command = {
 if(require.main === module) {
 	var fs = require('fs');
 	var underscore = require('underscore');
-	var ArgumentParser = require('../lib/arguments.js').ArgumentParser;
 	var FileManager = require('../lib/file_manager.js').FileManager; 
 	var TemplatePathBuilder = require('../lib/template_path_builder.js').TemplatePathBuilder;
 	var FileListFormatter = require('../lib/file_list_formatter.js').FileListFormatter; 
@@ -16,14 +15,20 @@ if(require.main === module) {
 	/*
 	 * Read in command line arguments
 	 */
-	ArgumentParser.make();
-	var parameters = ArgumentParser.parameters();
-	var template = ArgumentParser.template();
+	var args = require('../lib/arguments.js');
+
+	/*
+	 * Make sure args are provided
+	 */
+	if(args.template == null) {
+		console.log("Usage tm render <template_name> [<parameter_list>]");
+		process.exit(0);
+	}
 
 	/*
 	 * Build a full path from the template parameter
 	 */
-	var wildcard_template = TemplatePathBuilder.build(template);
+	var wildcard_template = TemplatePathBuilder.build(args.template);
 
 	/*
 	 * Get all of the files that match this template suggestion
@@ -34,7 +39,7 @@ if(require.main === module) {
 	 * If there are no matches, let the user know, and then die
 	 */
 	if(matches.length == 0) {
-		console.log("Couldn't find any templates matching " + template);
+		console.log("Couldn't find any templates matching " + args.template);
 		process.exit(0);
 	}
 
@@ -64,6 +69,6 @@ if(require.main === module) {
 	 * Otherwise we have a single match. Lets open it up and template it
 	 */
 	var file_contents = fs.readFileSync(matches[0].full_path).toString();
-	console.log(Templater.template(file_contents, parameters));
+	console.log(Templater.template(file_contents, args.parameters));
 
 }
