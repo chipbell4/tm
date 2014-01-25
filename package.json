@@ -1,0 +1,31 @@
+{
+	"name" : "tm",
+	"version" : "0.1.0",
+	"description" : "A command-line tool for templating out files",
+	"keywords" : ["template", "utils"],
+	"bugs" : {
+		"url" : "http://github.com/chipbell4/tm/issues"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/chipbell4/tm.git"
+	},
+	"license" : "MIT",
+	"author" : {
+		"name" : "Chip Bell"
+	},
+	"bin" : {
+		"tm" : "lib/main.js"
+	},
+	"dependencies" : {
+		"glob" : "3.2.8",
+		"optimist" : "0.6.0",
+		"underscore" : "1.5.2"
+	},
+	"devDependencies" : {
+		"mocha" : "*",
+		"chai" : "*",
+		"sinon" : "*",
+		"sinon-chai" : "*"
+	}
+}
