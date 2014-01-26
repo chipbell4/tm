@@ -5,8 +5,6 @@ exports.command = {
 };
 
 if(require.main === module) {
-	var fs = require('fs');
-	var underscore = require('underscore');
 	var FileManager = require('../lib/file_manager.js').FileManager; 
 	var TemplatePathBuilder = require('../lib/template_path_builder.js').TemplatePathBuilder;
 	var FileListFormatter = require('../lib/file_list_formatter.js').FileListFormatter; 
